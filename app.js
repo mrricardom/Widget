@@ -17,37 +17,7 @@ const getWidget = async () => {
       let branding = response[i].branding
       let imgUrl = response[i].thumbnail[0]['url']
       let category = response[i].categories[0]
-
-      //creating elements to add to DOM
-      const link = document.createElement('a')
-      const img = document.createElement('img')
-      const title = document.createElement('a')
-      const brand = document.createElement('a')
-
-      //setting the url of each individual item, giving them a class for CSS
-      link.setAttribute('href', url)
-      img.setAttribute('src', imgUrl)
-      img.setAttribute('class', 'images')
-      // note: chose to display category on hover over the image
-      img.setAttribute('title', category)
-      title.setAttribute('href', url)
-      title.setAttribute('class', 'titles')
-      brand.setAttribute('href', url)
-      brand.setAttribute('class', 'brands')
-
-      //appending the img created to a link tag
-      link.appendChild(img)
-
-      //setting Dom text of a tags
-      title.innerHTML = name
-      brand.innerHTML = branding
-
-      // console.log(title)
-
-      //appending to dom
-      document.getElementById('widget').appendChild(link)
-      document.getElementById('widget').appendChild(title)
-      document.getElementById('widget').appendChild(brand)
+      widget(url, name, branding, imgUrl, category)
     }
   } catch (error) {
     console.log(`Your error is ${error}`)
@@ -55,3 +25,36 @@ const getWidget = async () => {
 }
 
 getWidget()
+
+const widget = (url, name, branding, imgUrl, category) => {
+  //creating elements to add to DOM
+  const link = document.createElement('a')
+  const img = document.createElement('img')
+  const title = document.createElement('a')
+  const brand = document.createElement('a')
+
+  //setting the url of each individual item, giving them a class for CSS
+  link.setAttribute('href', url)
+  img.setAttribute('src', imgUrl)
+  img.setAttribute('class', 'images')
+  // note: chose to display category on hover over the image
+  img.setAttribute('title', category)
+  title.setAttribute('href', url)
+  title.setAttribute('class', 'titles')
+  brand.setAttribute('href', url)
+  brand.setAttribute('class', 'brands')
+
+  //appending the img created to a link tag
+  link.appendChild(img)
+
+  //setting Dom text of a tags
+  title.innerHTML = name
+  brand.innerHTML = branding
+
+  // console.log(title)
+
+  //appending to dom
+  document.getElementById('widget').appendChild(link)
+  document.getElementById('widget').appendChild(title)
+  document.getElementById('widget').appendChild(brand)
+}

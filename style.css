@@ -6,7 +6,8 @@ a {
 
 #widgets {
   width: 500px;
-  display: inline;
+  display: block;
+  display: flex;
 }
 
 #widget {
@@ -15,7 +16,7 @@ a {
 
 .titles {
   font-weight: 800;
-  font-size: 25px;
+  font-size: 16px;
   margin: 15px 80px 10px;
   max-width: 14.5em;
 }
@@ -23,13 +24,13 @@ a {
 .brands {
   color: grey;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 16px;
   margin: 10px 80px 0;
 }
 
 #widget img {
-  height: 22em;
-  width: 22em;
+  height: 15em;
+  width: 15em;
   margin: 30px 80px 5px 80px;
 }
 
